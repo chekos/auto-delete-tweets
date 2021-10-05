@@ -1,0 +1,5 @@
+.venv/
+set_envs.sh
+output.txt
+*.db
+auth.json
