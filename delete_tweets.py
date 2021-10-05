@@ -7,11 +7,11 @@ import tweepy
 from datetime import datetime
 import os
 # Constants
-CONSUMER_KEY = os.getenv('CONSUMER_KEY')
-CONSUMER_SECRET = os.getenv('CONSUMER_SECRET')
-ACCESS_TOKEN = os.getenv('ACCESS_TOKEN')
-ACCESS_SECRET = os.getenv('ACCESS_SECRET')
-USER_NAME = os.getenv('USER_NAME')
+CONSUMER_KEY = os.environ.get('CONSUMER_KEY')
+CONSUMER_SECRET = os.environ.get('CONSUMER_SECRET')
+ACCESS_TOKEN = os.environ.get('ACCESS_TOKEN')
+ACCESS_SECRET = os.environ.get('ACCESS_SECRET')
+USER_NAME = os.environ.get('USER_NAME')
 
 # Connect To Your Twitter Account via Twitter API
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
