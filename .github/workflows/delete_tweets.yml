@@ -11,7 +11,6 @@ on:
 jobs:
   scheduled:
     runs-on: ubuntu-latest
-    environment: gh-action
     steps:
     - name: Check out repo
       uses: actions/checkout@v2
