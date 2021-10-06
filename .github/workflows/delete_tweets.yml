@@ -1,38 +1,38 @@
-name: Delete tweets
+# name: Delete tweets
 
-on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
-  schedule:
-    - cron: '17 7,15,23 * * *'
+# on:
+#   push:
+#     branches:
+#       - main
+#   workflow_dispatch:
+#   schedule:
+#     - cron: '17 7,15,23 * * *'
 
-jobs:
-  scheduled:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Check out repo
-      uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.8
-    - uses: actions/cache@v2
-      name: Configure pip caching
-      with:
-        path: ~/.cache/pip
-        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-pip-
-    - name: Install Python dependencies
-      run: |
-        pip install -r requirements.txt
-    - name: Run script
-      env: 
-        CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
-        cONSUMER_SECRET: ${{ secrets.cONSUMER_SECRET }}
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        ACCESS_SECRET: ${{ secrets.ACCESS_SECRET }}
-        USER_NAME: ${{ secrets.USER_NAME }}
-      run: python delete_tweets.py
+# jobs:
+#   scheduled:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: Check out repo
+#       uses: actions/checkout@v2
+#     - name: Set up Python
+#       uses: actions/setup-python@v2
+#       with:
+#         python-version: 3.8
+#     - uses: actions/cache@v2
+#       name: Configure pip caching
+#       with:
+#         path: ~/.cache/pip
+#         key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+#         restore-keys: |
+#           ${{ runner.os }}-pip-
+#     - name: Install Python dependencies
+#       run: |
+#         pip install -r requirements.txt
+#     - name: Run script
+#       env: 
+#         CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
+#         cONSUMER_SECRET: ${{ secrets.cONSUMER_SECRET }}
+#         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+#         ACCESS_SECRET: ${{ secrets.ACCESS_SECRET }}
+#         USER_NAME: ${{ secrets.USER_NAME }}
+#       run: python delete_tweets.py
